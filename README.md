@@ -60,3 +60,23 @@ This gives Bob not only a clear consciousness, but also bragging rights about ba
 * Minting: Creating an asset (can be fungible, can be non-fungible)
 
 
+### IREC mock
+
+The IREC.sol is currently a mockup for the real IREC's. They are at the time of writing a ERC-223 token, but will be extended to a ERC-223+ERC-1888 token.
+When transferring these tokens to a contract address, it will trigger the `tokenReceived` function of the IERC223Recipient (in our case, VOLT)
+
+### VOLT token
+
+The VOLT.sol is the smart contract that mints 1,000,000 VOLT tokens when you transfer an amount of IREC's to its contract address.
+It implements the IERC223Recipient interface to mint VOLT's upon receiving an ERC223 IREC token.
+
+The VOLT contract also implements the ERC20Burnable interface so that these tokens can be burned.
+In this function, it also makes sure to burn the IREC's from the VOLT's balance.
+
+## History
+
+This project is the work of a group of people and started from a hackathon event called BLINGathon*, we call ourselves _'SystemGoesB00m!'_, but in all reality, we're just GreenVolt now ;)
+Because of the potential with fragmenting energy certificates, we'll continue the research and development beyond this event.
+
+_*BLING stands for BLockchain in Government and is an initiative to research technologies and how they can benefit the citizens of the EU (and the world)_
+
